@@ -10,7 +10,7 @@
 #import "GameScene.h"
 #import <AVFoundation/AVFoundation.h>
 
-static NSInteger const kPipeGap = 120;
+static NSInteger const kPipeGap = 105;
 static NSInteger const kMinPipeHeight = 40;
 static float const kFadeDuration = 0.5;
 
