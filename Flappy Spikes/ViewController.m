@@ -9,16 +9,19 @@
 #import "ViewController.h"
 #import "GameScene.h"
 
-@implementation ViewController
+@implementation ViewController 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Set GameCenter Manager Delegate
+    [[GameCenterManager sharedManager] setDelegate:self];
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+    //skView.showsFPS = YES;
+    //skView.showsNodeCount = YES;
     
     // Create and configure the scene.
     SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
@@ -50,6 +53,11 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (void)gameCenterManager:(GameCenterManager *)manager authenticateUser:(UIViewController *)gameCenterLoginController
+{
+    [self presentViewController:gameCenterLoginController animated:YES completion:nil];
 }
 
 @end

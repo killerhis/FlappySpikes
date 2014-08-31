@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "GameScene.h"
 #import <AVFoundation/AVFoundation.h>
+#import "GameCenterManager.h"
+#import "GAIDictionaryBuilder.h"
 
 static NSInteger const kPipeGap = 105;
 static NSInteger const kMinPipeHeight = 40;
@@ -19,7 +21,7 @@ static const uint32_t worldCategory = 0x1 << 1;
 static const uint32_t pipeCategory = 0x1 << 2;
 static const uint32_t scoreCategory = 0x1 << 3;
 
-@interface GameScene () <SKPhysicsContactDelegate>
+@interface GameScene () <SKPhysicsContactDelegate, UIActionSheetDelegate>
 
 //@property (strong, nonatomic) SKAction *flapSound;
 //@property (strong, nonatomic) SKAction *gameoverSound;
@@ -71,6 +73,10 @@ static const uint32_t scoreCategory = 0x1 << 3;
     
     NSInteger _bestScore;
     NSInteger _gamesPlayed;
+    
+    NSArray *_shareTitles;
+    
+    UIImage *_imageToShare;
 }
 
 
@@ -94,6 +100,8 @@ static const uint32_t scoreCategory = 0x1 << 3;
         _backgroundColor = [SKColor colorWithRed:241.0/255.0 green:241.0/255.0 blue:241.0/255.0 alpha:1.0];
         
         _muteSound = [_defaults boolForKey:@"muteSound"];
+        
+        _shareTitles = @[NSLocalizedString(@"Facebook", nil), NSLocalizedString(@"Twitter", nil)];
         
         [self initSceneNodes];
         [self startScene];
@@ -134,7 +142,9 @@ static const uint32_t scoreCategory = 0x1 << 3;
             }
             
         } else if ([node.name isEqualToString:@"gamecenter"]) {
-            //gamecenter
+            
+            // Show gamecenter leaderboard
+            [self showLeaderboard];
             
             if (!_muteSound) {
                 [self runAction:_clickSound];
@@ -162,16 +172,18 @@ static const uint32_t scoreCategory = 0x1 << 3;
             
         } else if ([node.name isEqualToString:@"gamecenter_gameover"]) {
             //GAMECENTER
+            [self showLeaderboard];
             
             if (!_muteSound) {
                 [self runAction:_clickSound];
             }
         } else if ([node.name isEqualToString:@"sharebutton"]) {
-            //SHARE
             
             if (!_muteSound) {
                 [self runAction:_clickSound];
             }
+            
+            [self shareScore];
         }
     } else  {
         
@@ -505,6 +517,11 @@ static const uint32_t scoreCategory = 0x1 << 3;
 
 - (void)startScene
 {
+    // GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Start Scene"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
     self.physicsWorld.gravity = CGVectorMake(0, 0);
     
     [self setBackground];
@@ -563,6 +580,11 @@ static const uint32_t scoreCategory = 0x1 << 3;
 
 - (void)gameOverScene
 {
+    // GA
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Game Over Scene"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
     [self saveScore];
     
     SKNode *gameover_scene = [SKNode node];
@@ -642,7 +664,9 @@ static const uint32_t scoreCategory = 0x1 << 3;
     
     [pointFieldNode runAction:[SKAction fadeAlphaTo:1.0 duration:0.2] completion:^{
         [replayButton runAction:[SKAction fadeAlphaTo:1.0 duration:0.2] completion:^{
-            [shareButton runAction:[SKAction fadeAlphaTo:1.0 duration:0.2]];
+            [shareButton runAction:[SKAction fadeAlphaTo:1.0 duration:0.2] completion:^{
+                [self createScreenShot];
+            }];
         }];
     }];
 }
@@ -677,16 +701,33 @@ static const uint32_t scoreCategory = 0x1 << 3;
 {
     if (_score > _bestScore) {
         _bestScore = _score;
-        [_defaults setInteger:_bestScore forKey:@"bestScore"];
     }
+    
+    if ([[GameCenterManager sharedManager] checkGameCenterAvailability]) {
+        int highScore = [[GameCenterManager sharedManager] highScoreForLeaderboard:@"flappy_spikes_leaderboard"];
+        
+        if (highScore >= _bestScore) {
+            _bestScore = highScore;
+        } else {
+            [[GameCenterManager sharedManager] saveAndReportScore:_bestScore leaderboard:@"flappy_spikes_leaderboard"  sortOrder:GameCenterSortOrderHighToLow];
+        }
+    }
+    
+    [_defaults setInteger:_bestScore forKey:@"bestScore"];
     
     _gamesPlayed++;
     [_defaults setInteger:_gamesPlayed forKey:@"gamesPlayed"];
     [_defaults synchronize];
+    
+
 }
 
 - (void)startGame
 {
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Game Scene"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
     _moving.speed = 1;
     [self initScenePhysics];
     [self initPipes];
@@ -830,6 +871,39 @@ static const uint32_t scoreCategory = 0x1 << 3;
     [_pipePair enumerateChildNodesWithName:@"scene" usingBlock:^(SKNode *node, BOOL *stop) {
         [node runAction:[SKAction colorizeWithColor:sceneColor colorBlendFactor:1.0 duration:kFadeDuration]];
     }];
+}
+
+#pragma mark - Game Center Methods
+
+- (void)showLeaderboard
+{
+    if ([[GameCenterManager sharedManager] checkGameCenterAvailability]) {
+        [[GameCenterManager sharedManager] presentLeaderboardsOnViewController:(ViewController *)self.view.window.rootViewController];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Center Unavailable" message:@"User is not signed in!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+#pragma mark - Share
+
+- (void)shareScore
+{
+    NSString *textToShare = [NSString stringWithFormat:@"OMG! I got %d points in Flappy Spikes! @hieshimi http://itunes.apple.com/app/id914341103", _score];
+    
+    NSArray *itemsToShare = @[textToShare, _imageToShare];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    [(ViewController *)self.view.window.rootViewController presentViewController:activityVC animated:YES completion:^{
+        
+    }];
+}
+
+- (void)createScreenShot
+{
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, YES, 0.5);
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    _imageToShare = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
 }
 
 @end

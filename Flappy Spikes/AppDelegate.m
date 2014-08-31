@@ -8,12 +8,21 @@
 
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
+#import "GameCenterManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[GameCenterManager sharedManager] setupManager];
+    
+    // GA
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    [GAI sharedInstance].dispatchInterval = 20;
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-54104285-2"];
+    
     return YES;
 }
 							
@@ -48,6 +57,8 @@
     // resume sprite kit
     SKView *view = (SKView *)self.window.rootViewController.view;
     view.paused = NO;
+    
+    [[GameCenterManager sharedManager] setupManager];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
