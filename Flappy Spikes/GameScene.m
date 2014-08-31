@@ -23,9 +23,6 @@ static const uint32_t scoreCategory = 0x1 << 3;
 
 @interface GameScene () <SKPhysicsContactDelegate, UIActionSheetDelegate>
 
-//@property (strong, nonatomic) SKAction *flapSound;
-//@property (strong, nonatomic) SKAction *gameoverSound;
-//@property (strong, nonatomic) SKAction *point;
 @end
 
 
@@ -105,7 +102,6 @@ static const uint32_t scoreCategory = 0x1 << 3;
         
         [self initSceneNodes];
         [self startScene];
-        _moving.speed = 0;
 
     }
     return self;
@@ -217,10 +213,9 @@ static const uint32_t scoreCategory = 0x1 << 3;
 
 - (void)addScoreHud
 {
-    // Initialize label and create a label which holds the score
     _score = 0;
     _scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"LVDC Common2"];
-    //_scoreLabelNode.position = CGPointMake( CGRectGetMidX( self.frame ), 3 * self.frame.size.height / 4 );
+
     _scoreLabelNode.zPosition = -90;
     _scoreLabelNode.fontSize = 125*_scale;
     _scoreLabelNode.fontColor = [SKColor colorWithRed:241.0/255.0 green:241.0/255.0 blue:241.0/255.0 alpha:1.0];
@@ -231,7 +226,6 @@ static const uint32_t scoreCategory = 0x1 << 3;
     [_scoreLabelNode runAction:[SKAction fadeAlphaTo:1.0 duration:0.5]];
     
     [self addChild:_scoreLabelNode];
-    //
 }
 
 - (void)initSceneNodes
@@ -338,8 +332,6 @@ static const uint32_t scoreCategory = 0x1 << 3;
     backgroundColor.zPosition = -101;
     backgroundColor.name = @"scene";
     [self addChild:backgroundColor];
-    //_backgroundColor = [SKColor colorWithRed:223.0/255.0 green:234.0/255.0 blue:240.0/255.0 alpha:1.0];
-    //self.backgroundColor = _backgroundColor;
     
     SKSpriteNode *backgroundScore = [SKSpriteNode spriteNodeWithImageNamed:@"background_score"];
     backgroundScore.position = CGPointMake(self.size.width/2, self.size.height/2);
@@ -378,7 +370,6 @@ static const uint32_t scoreCategory = 0x1 << 3;
         }
         
         [sprite runAction:moveGroundSpritesForever];
-        //[self addChild:sprite];
         
         [_moving addChild:sprite];
     }
@@ -418,7 +409,6 @@ static const uint32_t scoreCategory = 0x1 << 3;
         }
         
         [sprite runAction:moveTopSpritesForever];
-        //[self addChild:sprite];
         
         [_moving addChild:sprite];
     }
@@ -462,7 +452,6 @@ static const uint32_t scoreCategory = 0x1 << 3;
     CGFloat y = arc4random() % (NSInteger)(self.frame.size.height - maxSpikeHeight) + _spikesHeight +kMinPipeHeight*_scale;
 
     
-    //SKSpriteNode*
     _pipe1 = [SKSpriteNode spriteNodeWithTexture:_pipeTexture1];
     _pipe1.position = CGPointMake( 0, -_pipe1.size.height/2 + y);
     _pipe1.name = @"scene";
@@ -473,9 +462,8 @@ static const uint32_t scoreCategory = 0x1 << 3;
     _pipe1.physicsBody.dynamic = NO;
     [_pipePair addChild:_pipe1];
     
-    //SKSpriteNode*
+
     _pipe2 = [SKSpriteNode spriteNodeWithTexture:_pipeTexture2];
-    //pipe2.position = CGPointMake( 0, y + pipe1.size.height + kPipeGap);
     _pipe2.position = CGPointMake( 0, _pipe2.size.height/2 + y + kPipeGap*_scale);
     _pipe2.name = @"scene";
     _pipe2.color = _blendColor;
@@ -494,8 +482,6 @@ static const uint32_t scoreCategory = 0x1 << 3;
     
     [_pipePair addChild:_pipe2];
     
-    // for count score
-    //SKNode* contactNode = [SKNode node];
     SKSpriteNode *contactNode = [SKSpriteNode node];
     contactNode.zPosition = -100;
     contactNode.position = CGPointMake( _pipe1.size.width + _bird.size.width / 2, CGRectGetMidY( self.frame ) );
@@ -521,6 +507,8 @@ static const uint32_t scoreCategory = 0x1 << 3;
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Start Scene"];
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    _moving.speed = 0;
     
     self.physicsWorld.gravity = CGVectorMake(0, 0);
     
