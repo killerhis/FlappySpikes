@@ -697,7 +697,7 @@ static const uint32_t scoreCategory = 0x1 << 3;
         if (highScore >= _bestScore) {
             _bestScore = highScore;
         } else {
-            [[GameCenterManager sharedManager] saveAndReportScore:_bestScore leaderboard:@"flappy_spikes_leaderboard"  sortOrder:GameCenterSortOrderHighToLow];
+            [[GameCenterManager sharedManager] saveAndReportScore:(int)_bestScore leaderboard:@"flappy_spikes_leaderboard"  sortOrder:GameCenterSortOrderHighToLow];
         }
     }
     
@@ -877,7 +877,7 @@ static const uint32_t scoreCategory = 0x1 << 3;
 
 - (void)shareScore
 {
-    NSString *textToShare = [NSString stringWithFormat:@"OMG! I got %d points in Flappy Spikes! @hieshimi http://itunes.apple.com/app/id914341103", _score];
+    NSString *textToShare = [NSString stringWithFormat:@"OMG! I got %ld points in Flappy Spikes! @hieshimi http://itunes.apple.com/app/id914341103", (long)_score];
     
     NSArray *itemsToShare = @[textToShare, _imageToShare];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
