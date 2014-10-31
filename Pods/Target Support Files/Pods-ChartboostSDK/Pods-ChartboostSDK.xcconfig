@@ -1,0 +1,2 @@
+PODS_CHARTBOOSTSDK_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/Chartboost" "$(PODS_ROOT)/ChartboostSDK"
+PODS_CHARTBOOSTSDK_OTHER_LDFLAGS = -framework "AVFoundation" -framework "Chartboost" -framework "CoreData" -framework "CoreGraphics" -framework "CoreMedia" -framework "QuartzCore" -framework "StoreKit" -framework "SystemConfiguration" -weak_framework "AdSupport"

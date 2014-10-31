@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 #import "GameCenterManager.h"
+#import "chartboostHelper.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation AppDelegate
 
@@ -54,6 +56,14 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
+    // Monitor FB App installs
+    [FBSettings setDefaultAppID:@"351290125048336"];
+    [FBAppEvents activateApp];
+    
+    // Initialize the Chartboost library
+    chartboostHelper *chartboostHlp = [[chartboostHelper alloc] init];
+    [chartboostHlp initChartboost];
+    
     // resume sprite kit
     SKView *view = (SKView *)self.window.rootViewController.view;
     view.paused = NO;
@@ -65,5 +75,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - Chartboost Delegate
 
 @end

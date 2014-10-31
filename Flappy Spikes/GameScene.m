@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "GameCenterManager.h"
 #import "GAIDictionaryBuilder.h"
+#import "chartboostHelper.h"
 
 static NSInteger const kPipeGap = 105;
 static NSInteger const kMinPipeHeight = 40;
@@ -146,6 +147,18 @@ static const uint32_t scoreCategory = 0x1 << 3;
                 [self runAction:_clickSound];
             }
             
+        } else if ([node.name isEqualToString:@"rate"]) {
+            
+            // Rate app
+            [self rateApp];
+            
+            [node runAction:[SKAction fadeAlphaTo:1.0 duration:0.2] completion:^{
+                [node removeFromParent];
+            }];
+            
+            if (!_muteSound) {
+                [self runAction:_clickSound];
+            }
         } else {
             _startGameScene = NO;
             
@@ -357,12 +370,14 @@ static const uint32_t scoreCategory = 0x1 << 3;
         
         if (self.size.height == 480.0f) {
             // 3.5 inch devices
-            _spikesHeight = sprite.size.height - 50;
-            sprite.position = CGPointMake(i * (sprite.size.width-2), sprite.size.height/2 - 50);
+            int offset35 = 0;
+            _spikesHeight = sprite.size.height - offset35;
+            sprite.position = CGPointMake(i * (sprite.size.width-2), sprite.size.height/2 - offset35);
         } else if (self.size.height == 568.0f) {
             // 4 inch devices
-            _spikesHeight = sprite.size.height - 25;
-            sprite.position = CGPointMake(i * (sprite.size.width-2), sprite.size.height/2 - 25);
+            int offset40 = 0;
+            _spikesHeight = sprite.size.height - offset40;
+            sprite.position = CGPointMake(i * (sprite.size.width-2), sprite.size.height/2 - offset40);
         } else {
             // iPad devices
             _spikesHeight = sprite.size.height;
@@ -531,7 +546,7 @@ static const uint32_t scoreCategory = 0x1 << 3;
     
     //Best Score Label
     SKLabelNode *bestScoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"Opificio Neue"];
-    bestScoreLabelNode.position = CGPointMake(self.size.width/2, self.size.height/2 - 140*_scale);
+    bestScoreLabelNode.position = CGPointMake(self.size.width/2, self.size.height/2 - 120*_scale);
     bestScoreLabelNode.fontSize = 25*_scale;
     bestScoreLabelNode.fontColor = _blendColor;
     bestScoreLabelNode.text = [NSString stringWithFormat:@"Best Score: %ld", (long)_bestScore];
@@ -539,7 +554,7 @@ static const uint32_t scoreCategory = 0x1 << 3;
     
     //Games Played Label
     SKLabelNode *gamesPlayedLabelNode = [SKLabelNode labelNodeWithFontNamed:@"Opificio Neue"];
-    gamesPlayedLabelNode.position = CGPointMake(self.size.width/2, self.size.height/2 - 170*_scale);
+    gamesPlayedLabelNode.position = CGPointMake(self.size.width/2, self.size.height/2 - 150*_scale);
     gamesPlayedLabelNode.fontSize = 25*_scale;
     gamesPlayedLabelNode.fontColor = _blendColor;
     gamesPlayedLabelNode.text = [NSString stringWithFormat:@"Games Played: %ld", (long)_gamesPlayed];
@@ -563,6 +578,19 @@ static const uint32_t scoreCategory = 0x1 << 3;
     _soundbutton.position = CGPointMake(self.size.width/2, self.size.height/2);
     _soundbutton.name = @"soundbutton";
     [_startScene addChild:_soundbutton];
+    
+    if (_gamesPlayed == 7 || _gamesPlayed == 40)
+    {
+        // Rate Button
+        SKSpriteNode *rateButton = [SKSpriteNode spriteNodeWithImageNamed:@"rate.png"];
+        rateButton.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        rateButton.name = @"rate";
+        rateButton.zPosition = 100;
+        rateButton.alpha = 0.0f;
+        [_startScene addChild:rateButton];
+        
+        [rateButton runAction:[SKAction fadeAlphaTo:1.0 duration:0.2]];
+    }
 }
 
 
@@ -626,7 +654,7 @@ static const uint32_t scoreCategory = 0x1 << 3;
     
     //Best Score Label
     SKLabelNode *bestScoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"Opificio Neue"];
-    bestScoreLabelNode.position = CGPointMake(self.size.width/2, self.size.height/2 - 140*_scale);
+    bestScoreLabelNode.position = CGPointMake(self.size.width/2, self.size.height/2 - 120*_scale);
     bestScoreLabelNode.fontSize = 25*_scale;
     bestScoreLabelNode.fontColor = _blendColor;
     bestScoreLabelNode.text = [NSString stringWithFormat:@"Best Score: %ld", (long)_bestScore];
@@ -634,7 +662,7 @@ static const uint32_t scoreCategory = 0x1 << 3;
     
     //Games Played Label
     SKLabelNode *gamesPlayedLabelNode = [SKLabelNode labelNodeWithFontNamed:@"Opificio Neue"];
-    gamesPlayedLabelNode.position = CGPointMake(self.size.width/2, self.size.height/2 - 170*_scale);
+    gamesPlayedLabelNode.position = CGPointMake(self.size.width/2, self.size.height/2 - 150*_scale);
     gamesPlayedLabelNode.fontSize = 25*_scale;
     gamesPlayedLabelNode.fontColor = _blendColor;
     gamesPlayedLabelNode.text = [NSString stringWithFormat:@"Games Played: %ld", (long)_gamesPlayed];
@@ -649,6 +677,10 @@ static const uint32_t scoreCategory = 0x1 << 3;
     
     [self addChild:gameover_scene];
     [self addChild:pointFieldNode];
+    
+    // Show Chartboost Interstitial
+    chartboostHelper *chartboostHlp = [[chartboostHelper alloc] init];
+    [chartboostHlp showInterstitial];
     
     [pointFieldNode runAction:[SKAction fadeAlphaTo:1.0 duration:0.2] completion:^{
         [replayButton runAction:[SKAction fadeAlphaTo:1.0 duration:0.2] completion:^{
@@ -859,6 +891,13 @@ static const uint32_t scoreCategory = 0x1 << 3;
     [_pipePair enumerateChildNodesWithName:@"scene" usingBlock:^(SKNode *node, BOOL *stop) {
         [node runAction:[SKAction colorizeWithColor:sceneColor colorBlendFactor:1.0 duration:kFadeDuration]];
     }];
+}
+
+- (void)rateApp
+{
+    NSString *str = @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=914341103&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8";
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 
 #pragma mark - Game Center Methods

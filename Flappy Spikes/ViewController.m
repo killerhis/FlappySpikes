@@ -8,8 +8,12 @@
 
 #import "ViewController.h"
 #import "GameScene.h"
+#import "GADBannerView.h"
+#import "GADRequest.h"
 
-@implementation ViewController 
+@implementation ViewController  {
+    GADBannerView * bannerView_;
+}
 
 - (void)viewDidLoad
 {
@@ -21,12 +25,23 @@
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     
-    // Create and configure the scene.
-    SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    // Present the scene.
-    [skView presentScene:scene];
+    if (!skView.scene) {
+        
+        // Load admob ads
+        bannerView_ = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+        bannerView_.adUnitID = @"ca-app-pub-2660521344509391/1609129805";
+        bannerView_.rootViewController = self;
+        bannerView_.center = CGPointMake(skView.bounds.size.width / 2, skView.bounds.size.height - (bannerView_.frame.size.height / 2));
+        [self.view addSubview:bannerView_];
+        [bannerView_ loadRequest:[GADRequest request]];
+        
+        // Create and configure the scene.
+        SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
+        scene.scaleMode = SKSceneScaleModeAspectFill;
+        
+        // Present the scene.
+        [skView presentScene:scene];
+    }
 }
 
 - (BOOL)shouldAutorotate
