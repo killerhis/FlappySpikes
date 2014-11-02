@@ -12,6 +12,7 @@
 #import "GameCenterManager.h"
 #import "GAIDictionaryBuilder.h"
 #import "chartboostHelper.h"
+#import "Promo.h"
 
 static NSInteger const kPipeGap = 105;
 static NSInteger const kMinPipeHeight = 40;
@@ -591,6 +592,9 @@ static const uint32_t scoreCategory = 0x1 << 3;
         
         [rateButton runAction:[SKAction fadeAlphaTo:1.0 duration:0.2]];
     }
+    
+    //Show Promo
+    
 }
 
 
