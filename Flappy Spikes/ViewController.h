@@ -10,14 +10,18 @@
 #import <SpriteKit/SpriteKit.h>
 #import "GameCenterManager.h"
 #import <StoreKit/StoreKit.h>
+#import <Parse/Parse.h>
+#import "Promo.h"
 
-@interface ViewController : UIViewController <GameCenterManagerDelegate, SKStoreProductViewControllerDelegate>
+@interface ViewController : UIViewController <GameCenterManagerDelegate>
 
-@property (nonatomic) NSNumber *ID;
+@property (nonatomic) NSNumber *promoID;
 @property (strong, nonatomic) NSNumber *appID;
-@property (strong, nonatomic) NSString *img;
+@property (strong, nonatomic) PFFile *img;
 @property (strong, nonatomic) UIButton *promoButton;
 @property (strong, nonatomic) SKScene *scene;
 @property (strong, nonatomic) UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) UIView *promoView;
+@property (strong, nonatomic) Promo *promo;
+
 @end

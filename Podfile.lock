@@ -7,6 +7,8 @@ PODS:
     - Reachability
   - Google-Mobile-Ads-SDK (6.12.0)
   - GoogleAnalytics-iOS-SDK (3.0.9)
+  - Parse (1.4.2):
+    - Bolts (~> 1.1.3)
   - Reachability (3.1.1)
 
 DEPENDENCIES:
@@ -15,6 +17,7 @@ DEPENDENCIES:
   - GameCenterManager (= 5.3)
   - Google-Mobile-Ads-SDK (~> 6.12)
   - GoogleAnalytics-iOS-SDK (= 3.0.9)
+  - Parse (= 1.4.2)
 
 SPEC CHECKSUMS:
   Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
@@ -23,6 +26,7 @@ SPEC CHECKSUMS:
   GameCenterManager: 9d36711a4688a59a728e0e3f9a050aa835fba618
   Google-Mobile-Ads-SDK: b1b5cfd1b604a8412faa5536586b13a4b640f344
   GoogleAnalytics-iOS-SDK: d9e198b1f955259a72886769be7377cdfcdb2250
+  Parse: fc9ceb6edbc6bb6a1a1f3c33f0db3293a6894f94
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
 
 COCOAPODS: 0.34.4

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FB9BAB5D59A673F6EA06B374"
+               BlueprintIdentifier = "74EDFEC4749B0B24BAF1CCFF"
                BuildableName = "libPods-ChartboostSDK.a"
                BlueprintName = "Pods-ChartboostSDK"
                ReferencedContainer = "container:Pods.xcodeproj">

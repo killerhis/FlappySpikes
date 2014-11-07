@@ -7,13 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <StoreKit/StoreKit.h>
+#import <Parse/Parse.h>
 
-@interface Promo : NSObject
+@interface Promo : NSObject <SKStoreProductViewControllerDelegate, UIAlertViewDelegate>
 
-@property (nonatomic) NSNumber *ID;
-@property (strong, nonatomic) NSString *url;
-@property (strong, nonatomic) NSString *img;
+@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIView *view;
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) UIView *promoView;
+@property (nonatomic) NSNumber *appID;
+@property (nonatomic) NSNumber *promoID;
+@property (strong, nonatomic) PFFile *img;
+@property (strong, nonatomic) UIButton *promoButton;
+@property (strong, nonatomic) UIViewController *controller;
+@property (nonatomic) BOOL promoAdVisibile;
 
-- (void)fetchPromoAd;
+- (void)showAppStoreID:(NSNumber *)appStoreID withView:(UIWindow *)window;
+- (void)showAlertForMessage:(NSDictionary *)userInfo withTitle:(NSString *)title forAppStoreID:(NSNumber *)appStoreID withView:(UIWindow *)window;
+- (void)fetchPromoAdWithController:(UIViewController *)controller;
 
 @end

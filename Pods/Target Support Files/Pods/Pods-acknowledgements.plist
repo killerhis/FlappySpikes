@@ -320,6 +320,14 @@ POSSIBILITY OF SUCH DAMAGE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>See https://www.parse.com/about/terms</string>
+			<key>Title</key>
+			<string>Parse</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (c) 2011, Tony Million.
 All rights reserved.
 

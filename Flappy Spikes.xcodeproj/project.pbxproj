@@ -94,6 +94,11 @@
 		4562E3D019B2878E000BBF7F /* flappyspikes_splashscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4562E3C419B2878E000BBF7F /* flappyspikes_splashscreen.png */; };
 		4562E3D119B2878E000BBF7F /* flappyspikes_splashscreen_r4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4562E3C519B2878E000BBF7F /* flappyspikes_splashscreen_r4.png */; };
 		4562E3D219B2878E000BBF7F /* Thumbs.db in Resources */ = {isa = PBXBuildFile; fileRef = 4562E3C619B2878E000BBF7F /* Thumbs.db */; };
+		457D00481A0C3E6B005B2FB3 /* flappyspikes_icon_29pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457D00451A0C3E6B005B2FB3 /* flappyspikes_icon_29pt@3x.png */; };
+		457D00491A0C3E6B005B2FB3 /* flappyspikes_icon_40pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457D00461A0C3E6B005B2FB3 /* flappyspikes_icon_40pt@3x.png */; };
+		457D004A1A0C3E6B005B2FB3 /* flappyspikes_icon_60pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457D00471A0C3E6B005B2FB3 /* flappyspikes_icon_60pt@3x.png */; };
+		457D004D1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD47-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 457D004B1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD47-portrait.png */; };
+		457D004E1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD55-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 457D004C1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD55-portrait.png */; };
 		4580D3D81A02D0840084F9DD /* chartboostHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580D3D71A02D0840084F9DD /* chartboostHelper.m */; };
 		45849D961A03F4CD00D48F77 /* Promo.m in Sources */ = {isa = PBXBuildFile; fileRef = 45849D951A03F4CD00D48F77 /* Promo.m */; };
 		45A0AF3A1A053A6200A93C5A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A0AF391A053A6200A93C5A /* StoreKit.framework */; };
@@ -103,9 +108,18 @@
 		45A0AF421A05A6F900A93C5A /* open_button@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A0AF3E1A05A6F900A93C5A /* open_button@2x~ipad.png */; };
 		45A0AF451A05A70700A93C5A /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A0AF431A05A70700A93C5A /* close_button@2x.png */; };
 		45A0AF461A05A70700A93C5A /* open_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A0AF441A05A70700A93C5A /* open_button@2x.png */; };
+		45A122661A0C29DA00854157 /* push.caf in Resources */ = {isa = PBXBuildFile; fileRef = 45A122651A0C29DA00854157 /* push.caf */; };
 		45A1F3561A06B32400FC54C4 /* rate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A1F3551A06B32400FC54C4 /* rate@2x.png */; };
 		45A1F3591A06B32B00FC54C4 /* rate@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A1F3571A06B32B00FC54C4 /* rate@2x~ipad.png */; };
 		45A1F35A1A06B32B00FC54C4 /* rate~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A1F3581A06B32B00FC54C4 /* rate~ipad.png */; };
+		45A1F35C1A06BE1B00FC54C4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A1F35B1A06BE1B00FC54C4 /* AudioToolbox.framework */; };
+		45A1F35E1A06BE3200FC54C4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A1F35D1A06BE3200FC54C4 /* CFNetwork.framework */; };
+		45A1F3601A06BE5400FC54C4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A1F35F1A06BE5400FC54C4 /* CoreLocation.framework */; };
+		45A1F3621A06BE5F00FC54C4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A1F3611A06BE5F00FC54C4 /* libz.dylib */; };
+		45A1F3641A06BE6A00FC54C4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A1F3631A06BE6A00FC54C4 /* MobileCoreServices.framework */; };
+		45A1F3661A06BE7500FC54C4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A1F3651A06BE7500FC54C4 /* QuartzCore.framework */; };
+		45A1F3681A06BE8B00FC54C4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A1F3671A06BE8B00FC54C4 /* Security.framework */; };
+		45A1F36A1A06BEA400FC54C4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A1F3691A06BEA400FC54C4 /* SystemConfiguration.framework */; };
 		B80C5B869EFF4B7F80F70BB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 965E462CCEA7453EB3186883 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -214,6 +228,11 @@
 		4562E3C419B2878E000BBF7F /* flappyspikes_splashscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyspikes_splashscreen.png; sourceTree = "<group>"; };
 		4562E3C519B2878E000BBF7F /* flappyspikes_splashscreen_r4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flappyspikes_splashscreen_r4.png; sourceTree = "<group>"; };
 		4562E3C619B2878E000BBF7F /* Thumbs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thumbs.db; sourceTree = "<group>"; };
+		457D00451A0C3E6B005B2FB3 /* flappyspikes_icon_29pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flappyspikes_icon_29pt@3x.png"; sourceTree = "<group>"; };
+		457D00461A0C3E6B005B2FB3 /* flappyspikes_icon_40pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flappyspikes_icon_40pt@3x.png"; sourceTree = "<group>"; };
+		457D00471A0C3E6B005B2FB3 /* flappyspikes_icon_60pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flappyspikes_icon_60pt@3x.png"; sourceTree = "<group>"; };
+		457D004B1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD47-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firecommand_splashscreen-iphone-HD47-portrait.png"; sourceTree = "<group>"; };
+		457D004C1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD55-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firecommand_splashscreen-iphone-HD55-portrait.png"; sourceTree = "<group>"; };
 		4580D3D61A02D0840084F9DD /* chartboostHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chartboostHelper.h; sourceTree = "<group>"; };
 		4580D3D71A02D0840084F9DD /* chartboostHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chartboostHelper.m; sourceTree = "<group>"; };
 		45849D941A03F4CD00D48F77 /* Promo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promo.h; sourceTree = "<group>"; };
@@ -225,9 +244,18 @@
 		45A0AF3E1A05A6F900A93C5A /* open_button@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open_button@2x~ipad.png"; sourceTree = "<group>"; };
 		45A0AF431A05A70700A93C5A /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
 		45A0AF441A05A70700A93C5A /* open_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open_button@2x.png"; sourceTree = "<group>"; };
+		45A122651A0C29DA00854157 /* push.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = push.caf; sourceTree = "<group>"; };
 		45A1F3551A06B32400FC54C4 /* rate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rate@2x.png"; sourceTree = "<group>"; };
 		45A1F3571A06B32B00FC54C4 /* rate@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rate@2x~ipad.png"; sourceTree = "<group>"; };
 		45A1F3581A06B32B00FC54C4 /* rate~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rate~ipad.png"; sourceTree = "<group>"; };
+		45A1F35B1A06BE1B00FC54C4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		45A1F35D1A06BE3200FC54C4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		45A1F35F1A06BE5400FC54C4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45A1F3611A06BE5F00FC54C4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		45A1F3631A06BE6A00FC54C4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		45A1F3651A06BE7500FC54C4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		45A1F3671A06BE8B00FC54C4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		45A1F3691A06BEA400FC54C4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		61AA35FB64BB3F5BF4DE773A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		965E462CCEA7453EB3186883 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD86152069A7F467A8DD8665 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -238,7 +266,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A1F36A1A06BEA400FC54C4 /* SystemConfiguration.framework in Frameworks */,
 				45A0AF3A1A053A6200A93C5A /* StoreKit.framework in Frameworks */,
+				45A1F3681A06BE8B00FC54C4 /* Security.framework in Frameworks */,
+				45A1F3661A06BE7500FC54C4 /* QuartzCore.framework in Frameworks */,
+				45A1F3641A06BE6A00FC54C4 /* MobileCoreServices.framework in Frameworks */,
+				45A1F3621A06BE5F00FC54C4 /* libz.dylib in Frameworks */,
+				45A1F3601A06BE5400FC54C4 /* CoreLocation.framework in Frameworks */,
+				45A1F35E1A06BE3200FC54C4 /* CFNetwork.framework in Frameworks */,
+				45A1F35C1A06BE1B00FC54C4 /* AudioToolbox.framework in Frameworks */,
 				4538367419DA08410011F8DE /* iAd.framework in Frameworks */,
 				45004CAF19B3827D00ECE95D /* Social.framework in Frameworks */,
 				450465A519B0EE4300E705CB /* AVFoundation.framework in Frameworks */,
@@ -287,6 +323,14 @@
 		4504653419B0B6E000E705CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45A1F3691A06BEA400FC54C4 /* SystemConfiguration.framework */,
+				45A1F3671A06BE8B00FC54C4 /* Security.framework */,
+				45A1F3651A06BE7500FC54C4 /* QuartzCore.framework */,
+				45A1F3631A06BE6A00FC54C4 /* MobileCoreServices.framework */,
+				45A1F3611A06BE5F00FC54C4 /* libz.dylib */,
+				45A1F35F1A06BE5400FC54C4 /* CoreLocation.framework */,
+				45A1F35D1A06BE3200FC54C4 /* CFNetwork.framework */,
+				45A1F35B1A06BE1B00FC54C4 /* AudioToolbox.framework */,
 				45A0AF391A053A6200A93C5A /* StoreKit.framework */,
 				4538367319DA08410011F8DE /* iAd.framework */,
 				45004CAE19B3827D00ECE95D /* Social.framework */,
@@ -427,6 +471,7 @@
 		4504659B19B0ED8300E705CB /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				45A122651A0C29DA00854157 /* push.caf */,
 				4504659C19B0ED9200E705CB /* click.caf */,
 				4504659D19B0ED9200E705CB /* flap.caf */,
 				4504659E19B0ED9200E705CB /* gameover.caf */,
@@ -465,6 +510,11 @@
 		4562E3BA19B2878E000BBF7F /* app assets */ = {
 			isa = PBXGroup;
 			children = (
+				457D004B1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD47-portrait.png */,
+				457D004C1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD55-portrait.png */,
+				457D00451A0C3E6B005B2FB3 /* flappyspikes_icon_29pt@3x.png */,
+				457D00461A0C3E6B005B2FB3 /* flappyspikes_icon_40pt@3x.png */,
+				457D00471A0C3E6B005B2FB3 /* flappyspikes_icon_60pt@3x.png */,
 				45004CAA19B3805200ECE95D /* flappyspikes_splashscreen-ipad_potrait.png */,
 				45004CAB19B3805200ECE95D /* flappyspikes_splashscreen-ipad_r_potrait.png */,
 				45004CA619B37F6300ECE95D /* flappyspikes_splashscreen-ipad_r.png */,
@@ -585,12 +635,14 @@
 				4562E3C919B2878E000BBF7F /* flappyspikes_icon_40pt.png in Resources */,
 				4529B68119B20B7B004AC5C4 /* pointsfield@2x~ipad.png in Resources */,
 				4546EB7619B104140035BB61 /* LVDCC.TTF in Resources */,
+				457D00481A0C3E6B005B2FB3 /* flappyspikes_icon_29pt@3x.png in Resources */,
 				4529B68419B20B7B004AC5C4 /* replaybutton~ipad.png in Resources */,
 				4504655819B0B6E000E705CB /* Images.xcassets in Resources */,
 				45004CAC19B3805200ECE95D /* flappyspikes_splashscreen-ipad_potrait.png in Resources */,
 				45A1F3561A06B32400FC54C4 /* rate@2x.png in Resources */,
 				45A0AF3F1A05A6F900A93C5A /* close_button~ipad.png in Resources */,
 				4546EB8E19B136710035BB61 /* pipe_bottom@2x.png in Resources */,
+				457D004D1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD47-portrait.png in Resources */,
 				4546EB8419B1284A0035BB61 /* bird_dead@2x.png in Resources */,
 				4546EB8219B1247D0035BB61 /* bird@2x.png in Resources */,
 				4504654E19B0B6E000E705CB /* Main_iPad.storyboard in Resources */,
@@ -627,13 +679,16 @@
 				4546EB8719B128570035BB61 /* bird_dead@2x~ipad.png in Resources */,
 				4546EB9719B140980035BB61 /* ground_spikes@2x~ipad.png in Resources */,
 				4562E3CC19B2878E000BBF7F /* flappyspikes_icon_76pt.png in Resources */,
+				45A122661A0C29DA00854157 /* push.caf in Resources */,
 				4529B68F19B20B95004AC5C4 /* pointsfield@2x.png in Resources */,
 				4546EB8119B1247D0035BB61 /* bird_flap@2x.png in Resources */,
+				457D004A1A0C3E6B005B2FB3 /* flappyspikes_icon_60pt@3x.png in Resources */,
 				4529B66519B1DC65004AC5C4 /* gamcenter@2x.png in Resources */,
 				4529B68619B20B7B004AC5C4 /* sharebutton~ipad.png in Resources */,
 				4546EB7D19B1246E0035BB61 /* bird@2x~ipad.png in Resources */,
 				4529B67019B1E066004AC5C4 /* soundbutton@2x~ipad.png in Resources */,
 				4546EB7219B102970035BB61 /* background_score~ipad.png in Resources */,
+				457D00491A0C3E6B005B2FB3 /* flappyspikes_icon_40pt@3x.png in Resources */,
 				45A1F35A1A06B32B00FC54C4 /* rate~ipad.png in Resources */,
 				4529B66219B1DC56004AC5C4 /* gamcenter@2x~ipad.png in Resources */,
 				4546EB8C19B136660035BB61 /* pipe_bottom~ipad.png in Resources */,
@@ -649,6 +704,7 @@
 				450465A219B0ED9200E705CB /* gameover.caf in Resources */,
 				4546EB9F19B14A620035BB61 /* title@2x~ipad.png in Resources */,
 				4529B69019B20B95004AC5C4 /* replaybutton@2x.png in Resources */,
+				457D004E1A0C3EC8005B2FB3 /* firecommand_splashscreen-iphone-HD55-portrait.png in Resources */,
 				4546EB7419B102C00035BB61 /* background_score@2x.png in Resources */,
 				4529B68519B20B7B004AC5C4 /* sharebutton@2x~ipad.png in Resources */,
 				4529B68219B20B7B004AC5C4 /* pointsfield~ipad.png in Resources */,
@@ -800,7 +856,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "f9365324-b828-4271-852a-f3fca47bf2e3";
+				PROVISIONING_PROFILE = "9634d6b5-2fb8-4be5-a90a-2acbe28707a6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -813,13 +869,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(PODS_ROOT)/ChartboostSDK\"",
+					"\"$(PODS_ROOT)/Parse\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flappy Spikes/Flappy Spikes-Prefix.pch";
 				INFOPLIST_FILE = "Flappy Spikes/Flappy Spikes-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9634d6b5-2fb8-4be5-a90a-2acbe28707a6";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -878,7 +938,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "f9365324-b828-4271-852a-f3fca47bf2e3";
+				PROVISIONING_PROFILE = "9634d6b5-2fb8-4be5-a90a-2acbe28707a6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -912,7 +972,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "f9365324-b828-4271-852a-f3fca47bf2e3";
+				PROVISIONING_PROFILE = "9634d6b5-2fb8-4be5-a90a-2acbe28707a6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -925,13 +985,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(PODS_ROOT)/ChartboostSDK\"",
+					"\"$(PODS_ROOT)/Parse\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flappy Spikes/Flappy Spikes-Prefix.pch";
 				INFOPLIST_FILE = "Flappy Spikes/Flappy Spikes-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9634d6b5-2fb8-4be5-a90a-2acbe28707a6";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -943,13 +1007,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hicham Chourak (TF9VESMTKV)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(PODS_ROOT)/ChartboostSDK\"",
+					"\"$(PODS_ROOT)/Parse\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flappy Spikes/Flappy Spikes-Prefix.pch";
 				INFOPLIST_FILE = "Flappy Spikes/Flappy Spikes-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9634d6b5-2fb8-4be5-a90a-2acbe28707a6";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

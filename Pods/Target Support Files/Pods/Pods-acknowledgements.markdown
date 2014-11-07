@@ -283,6 +283,10 @@ Copyright 2011 Google Inc. All Rights Reserved.
 Copyright 2009 - 2014 Google, Inc. All rights reserved.
 
 
+## Parse
+
+See https://www.parse.com/about/terms
+
 ## Reachability
 
 Copyright (c) 2011, Tony Million.
